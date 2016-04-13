@@ -1,0 +1,50 @@
+....F.F..
+======================================================================
+FAIL: test_index_view_with_a_future_question (polls.tests.QuestionViewTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/alvin/documents/try/Django-normal/mysite/polls/tests.py", line 75, in test_index_view_with_a_future_question
+    self.assertContains(response, "No polls are available.",status_code=200)
+  File "/home/alvin/documents/environments/testenvironment01/lib/python2.7/site-packages/django/test/testcases.py", line 398, in assertContains
+    msg_prefix + "Couldn't find %s in response" % text_repr)
+AssertionError: Couldn't find 'No polls are available.' in response
+
+======================================================================
+FAIL: test_index_view_with_future_question_and_past_question (polls.tests.QuestionViewTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/alvin/documents/try/Django-normal/mysite/polls/tests.py", line 88, in test_index_view_with_future_question_and_past_question
+    ['<Question: Past question.>']
+  File "/home/alvin/documents/environments/testenvironment01/lib/python2.7/site-packages/django/test/testcases.py", line 967, in assertQuerysetEqual
+    return self.assertEqual(list(items), values, msg=msg)
+AssertionError: Lists differ: ['<Question: Future question.>... != ['<Question: Past question.>']
+
+First differing element 0:
+<Question: Future question.>
+<Question: Past question.>
+
+First list contains 1 additional elements.
+First extra element 1:
+<Question: Past question.>
+
+- ['<Question: Future question.>', '<Question: Past question.>']
++ ['<Question: Past question.>']
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.028s
+
+FAILED (failures=2)
+Creating test database for alias 'default'...
+X-Frame-Options: SAMEORIGIN
+Content-Type: text/html; charset=utf-8
+
+
+
+    <ul>
+    
+    	<li><a href="/polls/1/">Future question.</a></li>    
+    
+    </ul>
+
+
+Destroying test database for alias 'default'...
